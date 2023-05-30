@@ -13,70 +13,76 @@
   <body>
     <div class="container mt-5">
       <div class="row">
-        <div id="left-side" class="col-md-6">
+        <div id="left-side" class="col-md-7">
           <h1 class="event-card-title text-center mb-5">
-            샌드뱅크와 함께 비트코인 가격을 맞춰보자! 🤖
+            내일의 비트코인 가격은 어떻게 될까!
           </h1>
           <p class="event-card-description text-center mb-5">
-            "새롭게 시작되는 '코인 예측왕' 이벤트에 초대합니다! 한 번의 예측으로
-            비트코인의 미래를 만들어 보세요. 당신이 예측한 날의 코인 가격이 가장
-            가깝다면, 비트코인을 선물로 드립니다. 단순한 이벤트가 아닌, 당신의
-            통찰력과 예측 능력을 키울 수 있는 기회입니다. 지금 바로 참여하세요,
-            이 놀라운 기회를 놓치지 마세요!"
+            "한 번의 예측으로 비트코인을 받아가세요! 당신이 예측한 날의 코인
+            가격이 가장 가깝다면, 상위 3분께 소정의 비트코인을 선물로 드립니다
+            😄"
           </p>
+          <h2 class="event-card-price text-center">현재 가격: $27,970</h2>
+          <span class="event-card-warning">
+            * 현재가는 CryptoCompare 기준이며, 참고용으로 제공됩니다. 실제
+            이벤트 참여 시 기준 가격은 바이낸스 BTC/USDT 기준으로 산정됩니다.
+          </span>
           <div class="tradingview-widget-container">
             <div id="tradingview_91d31"></div>
           </div>
         </div>
-        <div id="right-side" class="col-md-6">
+        <div id="right-side" class="col-md-5">
           <div class="mt-5">
-            <h2 class="text-center mb-3">현재까지 참여 현황</h2>
+            <h2 class="text-center mb-5">현재까지 참여 현황</h2>
             <div class="card-field row">
               <div class="col-md-4">
-                <h5 class="card-title">순위</h5>
+                <h5 class="card-title">현재 순위</h5>
               </div>
               <div class="col-md-4">
                 <h5 class="card-title">예상 가격</h5>
               </div>
               <div class="col-md-4">
-                <h5 class="card-title">휴대폰 번호</h5>
+                <h5 class="card-title">휴대폰 뒤 4자리</h5>
               </div>
             </div>
             <div id="current-status"></div>
           </div>
-          <form
-            action="https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec?function=doPost"
-            method="post"
-          >
-            <div class="form-group">
-              <label for="coin-name">이름</label>
-              <input
-                type="text"
-                class="form-control"
-                id="coin-name"
-                placeholder="예상 가격"
-              />
-            </div>
-            <div class="form-group">
-              <label for="coin-price">코인 가격</label>
-              <input
-                type="number"
-                class="form-control"
-                id="coin-price"
-                placeholder="코인 가격을 입력하세요..."
-              />
-            </div>
-            <div class="form-group">
-              <label for="coin-expectation">휴대폰 번호</label>
-              <input
-                type="number"
-                class="form-control"
-                id="coin-expectation"
-                placeholder="휴대폰 번호를 입력하세요..."
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">제출</button>
-          </form>
+          <div class="mt-5">
+            <h2 class="text-center mb-3">참여하기</h2>
+            <form
+              action="https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec?function=doPost"
+              method="post"
+            >
+              <div class="form-group">
+                <label for="coin-name">이름</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="coin-name"
+                  placeholder="예상 가격"
+                />
+              </div>
+              <div class="form-group">
+                <label for="coin-price">코인 가격</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="coin-price"
+                  placeholder="코인 가격을 입력하세요..."
+                />
+              </div>
+              <div class="form-group">
+                <label for="coin-expectation">휴대폰 번호</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="coin-expectation"
+                  placeholder="휴대폰 번호를 입력하세요..."
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">제출</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -138,7 +144,9 @@
                     <p class="card-text" id="result-rank">${result.price}</p>
                     </div>
                     <div class="col-md-4">
-                    <p class="card-text" id="result-rank">${result.phone}</p>
+                    <p class="card-text" id="result-rank">${result.phone.slice(
+                      -4
+                    )}</p>
                     </div>
                     </div>
                 </div>

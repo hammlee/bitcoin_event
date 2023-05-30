@@ -19,6 +19,9 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+.card-title {
+  font-size: 18px;
+}
 .card-field {
   display: flex;
   flex-direction: row;
@@ -32,6 +35,16 @@ body {
 }
 .event-card-description {
   font-size: 16px;
+  color: #fff;
+}
+.event-card-warning {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+.event-card-price {
+  font-size: 20px;
+  font-weight: 700;
   color: #fff;
 }
 .card-text {
