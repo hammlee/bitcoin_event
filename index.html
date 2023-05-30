@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Price Expectation</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div id="left-side" class="col-md-6">
+          <h1 class="event-card-title text-center mb-5">
+            샌드뱅크와 함께 비트코인 가격을 맞춰보자! 🤖
+          </h1>
+          <p class="event-card-description text-center mb-5">
+            "새롭게 시작되는 '코인 예측왕' 이벤트에 초대합니다! 한 번의 예측으로
+            비트코인의 미래를 만들어 보세요. 당신이 예측한 날의 코인 가격이 가장
+            가깝다면, 비트코인을 선물로 드립니다. 단순한 이벤트가 아닌, 당신의
+            통찰력과 예측 능력을 키울 수 있는 기회입니다. 지금 바로 참여하세요,
+            이 놀라운 기회를 놓치지 마세요!"
+          </p>
+          <div class="tradingview-widget-container">
+            <div id="tradingview_91d31"></div>
+          </div>
+        </div>
+        <div id="right-side" class="col-md-6">
+          <div class="mt-5">
+            <h2 class="text-center mb-3">현재까지 참여 현황</h2>
+            <div class="card-field row">
+              <div class="col-md-4">
+                <h5 class="card-title">순위</h5>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title">예상 가격</h5>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title">휴대폰 번호</h5>
+              </div>
+            </div>
+            <div id="current-status"></div>
+          </div>
+          <form
+            action="https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec?function=doPost"
+            method="post"
+          >
+            <div class="form-group">
+              <label for="coin-name">이름</label>
+              <input
+                type="text"
+                class="form-control"
+                id="coin-name"
+                placeholder="예상 가격"
+              />
+            </div>
+            <div class="form-group">
+              <label for="coin-price">코인 가격</label>
+              <input
+                type="number"
+                class="form-control"
+                id="coin-price"
+                placeholder="코인 가격을 입력하세요..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="coin-expectation">휴대폰 번호</label>
+              <input
+                type="number"
+                class="form-control"
+                id="coin-expectation"
+                placeholder="휴대폰 번호를 입력하세요..."
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">제출</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery 파일 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 부트스트랩 JS 파일 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // jQuery
+      $("form").submit(function (event) {
+        event.preventDefault();
+        const coinName = $("#coin-name").val();
+        const coinPrice = $("#coin-price").val();
+        const coinExpectation = $("#coin-expectation").val();
+        $("#result-coin-name").text(coinName);
+        $("#result-coin-price").text(coinPrice);
+        $("#result-coin-expectation").text(coinExpectation);
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://s3.tradingview.com/tv.js"
+    ></script>
+    <script type="text/javascript">
+      let main = document.querySelector("#left-side");
+      let width = main.offsetWidth - 20;
+      let height = main.offsetHeight - 20;
+
+      new TradingView.widget({
+        width: width,
+        height: height,
+        symbol: "BINANCE:BTCUSDT",
+        interval: "5",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "en",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: "tradingview_91d31",
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        const ajaxSettings = {
+          url: "https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec",
+          success: (data) => {
+            const container = document.querySelector("#current-status");
+            data.forEach((result) => {
+              const card = `
+              <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                    <p class="card-text" id="result-rank">${result.rank}</p>
+                    </div>
+                    <div class="col-md-4">
+                    <p class="card-text" id="result-rank">${result.price}</p>
+                    </div>
+                    <div class="col-md-4">
+                    <p class="card-text" id="result-rank">${result.phone}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>`;
+
+              container.insertAdjacentHTML("beforeend", card);
+            });
+          },
+          error: () => {
+            alert("추천에 실패했습니다. 잠시 후에 다시 시도해주세요.");
+          },
+        };
+
+        $.ajax({ ...ajaxSettings, method: "GET", data: { function: "doGet" } });
+      });
+
+      function updateCards(data) {
+        console.log(data);
+      }
+    </script>
+  </body>
+</html>

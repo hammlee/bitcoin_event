@@ -1,0 +1,45 @@
+body {
+  background: #000;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  color: #fff;
+}
+.card {
+  margin: 20px auto;
+  /* max-width: 500px; */
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.card-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.event-card-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: rgb(1, 124, 255);
+  margin-bottom: 10px;
+}
+.event-card-description {
+  font-size: 16px;
+  color: #fff;
+}
+.card-text {
+  color: #212529;
+}
+#left-side {
+  padding-right: 50px;
+}
+#right-side {
+  padding-left: 50px;
+}
