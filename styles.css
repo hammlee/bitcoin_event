@@ -61,8 +61,11 @@ body {
   width: 100%;
   z-index: 100;
 }
+/* .logos {
+  padding-left: 80px;
+} */
 .logo {
-  width: 300px;
+  max-width: 200px;
 }
 .icon-cross {
   width: 25px;
@@ -257,6 +260,7 @@ body {
     font-size: 24px;
   }
   .logos {
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
