@@ -24,9 +24,6 @@ body {
   overflow-x: hidden;
   color: #fff;
 }
-/* .container {
-  max-width: 1300px;
-} */
 
 /* 플로팅 버튼 */
 .floating-button {
@@ -65,7 +62,7 @@ body {
   z-index: 100;
 }
 .logo {
-  width: 150px;
+  width: 300px;
 }
 .icon-cross {
   width: 25px;
@@ -238,5 +235,37 @@ body {
 @media (min-width: 1500px) {
   .container {
     max-width: 1400px;
+  }
+}
+@media (max-width: 532px) {
+  #left-side {
+    padding-right: 15px;
+  }
+  #right-side {
+    padding-left: 15px;
+  }
+  .status-header {
+    margin-top: 30px;
+  }
+  .status-field {
+    display: none;
+  }
+  .intro-title {
+    font-size: 30px;
+  }
+  .intro-desc2-price {
+    font-size: 24px;
+  }
+  .logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    width: 150px;
+  }
+  .icon-cross {
+    margin-top: 10px;
   }
 }
