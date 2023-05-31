@@ -182,7 +182,13 @@ body {
   position: fixed;
   bottom: 0px;
   /* right: 20px; */
-  background-color: rgb(1, 124, 255);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(1, 124, 255, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
   color: white;
   border: none;
   opacity: 0.9;
@@ -193,4 +199,8 @@ body {
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+}
+.floating-button:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
 }
