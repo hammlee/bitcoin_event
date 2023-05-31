@@ -109,7 +109,7 @@
                     * 현장 참여코드가 일치하지 않는 경우 무효입니다.<br />
                   </div>
                   <form
-                    action="https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec?function=doPost"
+                    action="https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec?function=doPost"
                     method="post"
                   >
                     <div class="form-group">
@@ -262,7 +262,7 @@
       $(document).ready(function () {
         const fetchSpreadSheet = (currentPrice) => {
           $.ajax({
-            url: "https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec",
+            url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
             success: (data) => {
               if (data.length === 0) {
                 cardContainer.html(
@@ -359,7 +359,7 @@
           submitSpinner.css("display", "block");
 
           $.ajax({
-            url: "https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec",
+            url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
             method: "POST",
             data: $("form").serialize(),
             success: (data) => {
