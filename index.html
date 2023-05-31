@@ -103,7 +103,7 @@
                     - 1등: 10만원 상당의 비트코인 <br />
                     - 2등: 5만원 상당의 비트코인 <br />
                     - 3등: 3만원 상당의 비트코인 <br /><br />
-                    당첨자 발표: 샌드뱅크 홈페이지 및 이메일 발송<br /><br />
+                    당첨자 발표: 샌드뱅크 홈페이지 > 공지사항 및 이메일 발송<br /><br />
                     * 1인당 1번만 참여가 가능합니다.<br />
                     * 중복 당첨자 발생 시 제출순으로 순위가 산정됩니다.
                   </div>
@@ -350,9 +350,9 @@
             method: "POST",
             data: $("form").serialize(),
             success: (data) => {
-              submitText.css("display", "block");
               submitSpinner.css("display", "none");
-              alert("참여가 완료되었습니다.");
+              submitText.css("display", "inline");
+              submitText.text("참여 완료!");
               location.reload();
             }
           });
@@ -386,6 +386,18 @@
           };
 
           header.on("click", handleClick);
+        });
+        $("#price").on("input", function () {
+          const value = $(this).val();
+          if (value.length > 9) {
+            $(this).val(value.slice(0, 9));
+          }
+        });
+        $("#phone").on("input", function () {
+          const value = $(this).val();
+          if (value.length > 11) {
+            $(this).val(value.slice(0, 11));
+          }
         });
       });
 
