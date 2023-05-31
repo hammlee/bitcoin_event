@@ -1,8 +1,8 @@
 {
   "ko": {
     "translation": {
-      "floating-button": "📈 바로 참여하기",
-      "title": "비트코인 가격 예측 이벤트",
+      "floating-button": "🏄 바로 참여하기",
+      "title": "비트코인 가격 예측 이벤트 📈",
       "intro-desc1-time": "6월 2일 19:00(KST)",
       "intro-desc1": "의 비트코인의 가격을 맞춰주세요!",
       "intro-desc2": "가장 비슷하게 맞혀주신 분들께는 최대 10만원 상당의 비트코인을 드립니다. 😄",
@@ -38,8 +38,8 @@
   },
   "en": {
     "translation": {
-      "floating-button": "📈 Apply Now",
-      "title": "Bitcoin Price Prediction Event",
+      "floating-button": "🏄 Apply Now",
+      "title": "Bitcoin Price Prediction Event 📈",
       "intro-desc1-time": "June 2nd, 19:00 (KST)",
       "intro-desc1": ", Please guess the price of Bitcoin at that time!",
       "intro-desc2": "For those who guess the closest, we'll give you 100,000 KRW worth of Bitcoin. 😄",
