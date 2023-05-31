@@ -41,7 +41,7 @@
             <h2 class="event-card-price text-center"></h2>
             <p class="event-card-warning">
               * 현재가는 CryptoCompare 기준이며, 참고용으로만 제공됩니다. 이벤트
-              결과 선정 시 기준가격은 바이낸스 BTC/USDT입니다.
+              결과 선정 시 기준가격은 업비트 BTC/KRW입니다.
             </p>
           </div>
           <div class="tradingview-widget-container">
@@ -69,14 +69,6 @@
             </div>
             <div id="current-status"></div>
           </div>
-          <button
-            type="button"
-            class="join btn btn-primary"
-            data-toggle="modal"
-            data-target="#myModal"
-          >
-            📈 참여하기
-          </button>
           <!-- 모달 창 -->
           <div
             class="modal fade"
@@ -104,8 +96,8 @@
                 <div class="modal-body">
                   <div class="event-detail mb-3">
                     📆 이벤트 기간 : 6/1(목) 09:00 ~ 6/2(금) 18:00 <br /><br />
-                    💁‍♂️ 산정 기준 : 6/2(금) 19:00(KST) 기준 바이낸스 BTC/USDT
-                    가격에 가장 근접한 가격을 맞춘 기준으로 등수 산정
+                    💁‍♂️ 산정 기준 : 6/2(금) 19:00(KST) 기준 업비트 BTC/KRW 가격에
+                    가장 근접한 가격을 맞춘 기준으로 등수 산정
                     <br /><br />
                     🎯 이벤트 경품 :<br />
                     - 1등: 10만원 상당의 비트코인 <br />
@@ -201,6 +193,14 @@
         </div>
       </div>
     </div>
+    <button
+      type="button"
+      class="btn btn-primary floating-button"
+      data-toggle="modal"
+      data-target="#myModal"
+    >
+      📈 참여하기
+    </button>
     <!-- jQuery 파일 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- 부트스트랩 JS 파일 -->
@@ -217,7 +217,7 @@
       new TradingView.widget({
         width: width,
         height: height,
-        symbol: "BINANCE:BTCUSDT",
+        symbol: "UPBIT:BTCKRW",
         interval: "5",
         timezone: "Etc/UTC",
         theme: "dark",
@@ -281,9 +281,9 @@
                 } ${index + 1}위</div>
                 </div>
                 <div class="col-md-4">
-                  <p class="card-text" id="result-rank">$ ${addCommas(
+                  <p class="card-text" id="result-rank">${addCommas(
                     result.price
-                  )}</p>
+                  )}원</p>
                 </div>
                 <div class="col-md-4">
                   <p class="card-text" id="result-rank">${
@@ -309,13 +309,13 @@
 
         const fetchCurrentPrice = () => {
           $.ajax({
-            url: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USDT",
+            url: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=KRW&e=Upbit",
             method: "GET",
             success: (data) => {
               const container = $(".event-card-price");
-              currentPrice = data["BTC"]["USDT"];
+              currentPrice = data["BTC"]["KRW"];
               container.html(
-                `<span>현재가: $ ${addCommas(currentPrice)}</span>`
+                `<span>현재가: ${addCommas(currentPrice)}원</span>`
               );
               fetchSpreadSheet(currentPrice);
             },
