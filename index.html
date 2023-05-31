@@ -57,10 +57,10 @@
               </div>
             </div>
             <div class="card-field row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <h5 class="card-title">현재 순위</h5>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-5">
                 <h5 class="card-title">예상 가격</h5>
               </div>
               <div class="col-md-4">
@@ -286,19 +286,28 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-4">
-                  <div class="card-badge" style="background-color: ${
-                    index < 3 ? "#f34848" : "transparent"
+                <div class="col-md-3 event-rank">
+                  <div class="card-badge" style="background: ${
+                    index < 3
+                      ? "linear-gradient(144deg, rgba(243,72,72,0.5382746848739496) 0%, rgba(243,72,72,1) 60%)"
+                      : "transparent"
                   }; color: ${index < 3 ? "white" : "black"}">${
                   index < 3 ? "🏅" : ""
                 } ${index + 1}위</div>
                 </div>
-                <div class="col-md-4">
-                  <p class="card-text" id="result-rank">${addCommas(
-                    result.price
-                  )}원</p>
+                <div class="col-md-5 event-price">
+                  <p class="card-text" id="result-rank">
+                    ${addCommas(result.price)}원</p>
+                  <p class="card-text card-text-sub" id="result-rank">
+                    (${
+                      result.price > currentPrice
+                        ? `<i class="fas fa-caret-up"></i>`
+                        : `<i class="fas fa-caret-down"></i>`
+                    }${"  "}${addCommas(
+                  Math.abs(result.price - currentPrice)
+                )}원)</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 event-phone">
                   <p class="card-text" id="result-rank">${
                     phone.slice(-4) || phone
                   }</p>

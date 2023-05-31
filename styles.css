@@ -90,9 +90,7 @@ body {
   color: #000;
 }
 .card-badge {
-  /* background-color: red; */
-  width: 60px;
-  height: 27px;
+  padding: 4px 10px;
   margin: 0 auto;
   border-radius: 4px;
 }
@@ -203,4 +201,23 @@ body {
 .floating-button:hover {
   opacity: 0.8;
   transition: opacity 0.3s ease-out;
+}
+.fa-caret-up {
+  color: red;
+  transform: scale(1.4);
+}
+.fa-caret-down {
+  color: blue;
+  transform: scale(1.4);
+}
+.card-text-sub {
+  font-size: 13px;
+  font-weight: 300;
+}
+.event-rank,
+.event-phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
