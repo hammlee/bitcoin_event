@@ -24,75 +24,142 @@ body {
   overflow-x: hidden;
   color: #fff;
 }
-.card {
-  margin: 20px auto;
-  /* max-width: 500px; */
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
+/* .container {
+  max-width: 1300px;
+} */
+
+/* 플로팅 버튼 */
+.floating-button {
+  position: fixed;
+  bottom: 0px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(1, 124, 255, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  border: none;
+  opacity: 0.9;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
-.card-body {
-  padding: 10px;
+.floating-button:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out;
 }
-.card-title {
-  font-size: 18px;
-}
-.card-field {
+
+/* 헤더 */
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid #dee2e6;
-}
-.event-card-title {
-  font-size: 40px;
-  font-weight: 700;
-  color: rgb(1, 124, 255);
-  margin-bottom: 10px;
-}
-.event-card-description {
-  font-size: 16px;
-  color: #fff;
-}
-.event-card-description-time {
-  font-size: 24px;
-  font-weight: 700;
-}
-.event-card-warning {
-  font-size: 11px;
-  font-weight: 400;
-  color: #fff;
-}
-.event-card-price {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
-.card-text {
-  color: #212529;
-}
-#left-side {
-  padding-right: 50px;
-  text-align: center;
-}
-#right-side {
-  padding-left: 50px;
-  margin-bottom: 100px;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 100;
 }
 .logo {
   width: 150px;
 }
 .icon-cross {
-  width: 50px;
+  width: 25px;
 }
-.event-table {
+
+/* Left Side */
+#left-side {
+  padding-right: 50px;
+  text-align: center;
+}
+.card {
+  margin: 15px auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.card-body {
+  padding: 5px 10px;
+}
+.card-title {
+  font-size: 18px;
+}
+.card-text {
+  color: #212529;
+}
+.card-badge {
+  font-size: 14px;
+  padding: 3px 6px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.status-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+}
+.intro-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: rgb(1, 124, 255);
+  margin-bottom: 10px;
+}
+.intro-desc1 {
+  font-size: 16px;
+  color: #fff;
+}
+.intro-desc1-time {
+  font-size: 24px;
+  font-weight: 700;
+}
+.intro-desc2-warning {
+  font-size: 11px;
+  font-weight: 400;
+  color: #fff;
+}
+.intro-desc2-price {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+/* Right Side */
+#right-side {
+  padding-left: 50px;
+  margin-bottom: 100px;
+}
+.status-header {
+  position: relative;
+}
+.status-header-refresh {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  cursor: pointer;
+}
+.status-header-refresh:hover {
+  color: rgb(1, 124, 255);
+}
+.fa-caret-up {
+  color: red;
+  transform: scale(1.4);
+}
+.fa-caret-down {
+  color: blue;
+  transform: scale(1.4);
+}
+
+/* 모달 */
+.modal-title {
+  font-weight: 700;
 }
 .event-form {
   color: #000;
-}
-.card-badge {
-  padding: 4px 10px;
-  margin: 0 auto;
-  border-radius: 4px;
 }
 .event-form-title {
   font-size: 32px;
@@ -100,13 +167,27 @@ body {
   color: rgb(1, 124, 255);
   margin-bottom: 10px;
 }
+.event-detail {
+  background-color: aliceblue;
+  padding: 15px;
+  font-size: 14px;
+}
 .event-form-list {
   font-weight: 700;
 }
+.event-rank,
+.event-phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.card-text-sub {
+  font-size: 13px;
+  font-weight: 300;
+}
 .accordion {
   margin-bottom: 10px;
-}
-.accordion-item {
 }
 .accordion-header {
   display: flex;
@@ -118,7 +199,6 @@ body {
   font-weight: 700;
   margin-bottom: 10px;
 }
-
 .accordion-content {
   background-color: aliceblue;
   padding: 15px;
@@ -128,17 +208,11 @@ body {
   overflow: hidden;
   transition: max-height 0.3s ease-out;
 }
-.event-detail {
-  background-color: aliceblue;
-  padding: 15px;
-  font-size: 14px;
-}
 .accordion-content.active {
   padding: 10px;
-  max-height: 500px; /* 펼쳐진 상태에서의 최대 높이 값으로 설정해주세요 */
+  max-height: 500px;
   transition: max-height 0.3s ease-in;
 }
-
 .accordion-content.active {
   display: block;
 }
@@ -155,69 +229,14 @@ body {
   padding: 20px;
   margin: 0 auto;
 }
+#submit-form {
+  width: 100%;
+}
 #submit-spinner {
   display: none;
 }
-.modal-title {
-  font-weight: 700;
-}
-.btn {
-  width: 100%;
-}
-.join-title {
-  position: relative;
-}
-#refresh {
-  position: absolute;
-  right: 0;
-  top: 13px;
-  cursor: pointer;
-}
-#refresh:hover {
-  color: rgb(1, 124, 255);
-}
-.floating-button {
-  position: fixed;
-  bottom: 0px;
-  /* right: 20px; */
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(1, 124, 255, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  color: white;
-  border: none;
-  opacity: 0.9;
-  /* border-radius: 20px; */
-  width: 100%;
-  height: 50px;
-  font-size: 24px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-.floating-button:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s ease-out;
-}
-.fa-caret-up {
-  color: red;
-  transform: scale(1.4);
-}
-.fa-caret-down {
-  color: blue;
-  transform: scale(1.4);
-}
-.card-text-sub {
-  font-size: 13px;
-  font-weight: 300;
-}
-.event-rank,
-.event-phone {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 1500px) {
+  .container {
+    max-width: 1400px;
+  }
 }

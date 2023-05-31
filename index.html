@@ -19,190 +19,86 @@
   </head>
   <body>
     <div class="container mt-5">
+      <div class="header mb-5">
+        <div class="logos mb-2 text-center">
+          <img class="logo" src="white.png" alt="" />
+          <i class="fas fa-times icon-cross"></i>
+          <img class="logo" src="nextrise.png" alt="" />
+        </div>
+        <!-- 언어 변경 버튼 -->
+        <div class="translate-btns">
+          <button
+            class="btn btn-outline-secondary"
+            onclick="changeLanguage('en')"
+          >
+            ENGLISH
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            onclick="changeLanguage('ko')"
+          >
+            KOREAN
+          </button>
+        </div>
+      </div>
       <div class="row">
         <div id="left-side" class="col-md-7">
-          <div class="logos mb-2">
-            <img class="logo" src="white.png" alt="" />
-            <i class="fas fa-times icon-cross"></i>
-            <img class="logo" src="nextrise.png" alt="" />
-          </div>
-          <h1 class="event-card-title text-center mb-5">
-            비트코인 가격 예측 이벤트
-          </h1>
-          <p class="event-card-description text-center mb-5">
-            <span class="event-card-description-time">
-              6월 2일 19:00(KST)
+          <h1 class="intro-title text-center mb-4" data-translate="title"></h1>
+          <div class="intro-desc1 mb-4">
+            <span class="intro-desc1-time" data-translate="intro-desc1-time">
             </span>
-            비트코인의 가격을 맞춰주세요! <br />
-            가장 비슷하게 맞춰주신 분들께는 최대 10만원 상당의 비트코인을
-            드립니다. 😄
-          </p>
-          <div class="mb-2">
-            <h2 class="event-card-price text-center"></h2>
-            <p class="event-card-warning">
-              * 현재가는 10초마다 새로고침되며, 업비트 BTC/KRW 실시간 가격과
-              약간의 오차가 발생할 수 있습니다.
-            </p>
+            <span
+              class="intro-desc1 text-center"
+              data-translate="intro-desc1"
+            ></span>
+            <br />
+            <span
+              class="intro-desc1 text-center mb-5"
+              data-translate="intro-desc2"
+            ></span>
+          </div>
+          <div class="intro-desc2 mb-2">
+            <h2 class="intro-desc2-price text-center"></h2>
+            <p
+              class="intro-desc2-warning"
+              data-translate="intro-desc2-warning"
+            ></p>
           </div>
           <div class="tradingview-widget-container">
             <div id="tradingview_91d31"></div>
           </div>
         </div>
-        <div id="right-side" class="col-md-5">
-          <div class="event-table mt-5 text-center">
-            <div class="join-title">
-              <h2 class="text-center mb-5">참여 현황</h2>
-              <div id="refresh">
-                <i class="fas fa-sync"></i>
-              </div>
-            </div>
-            <div class="card-field row">
-              <div class="col-md-3">
-                <h5 class="card-title">현재 순위</h5>
-              </div>
-              <div class="col-md-5">
-                <h5 class="card-title">예상 가격</h5>
-              </div>
-              <div class="col-md-4">
-                <h5 class="card-title">휴대폰 뒤 4자리</h5>
-              </div>
-            </div>
-            <div id="current-status"></div>
-          </div>
-          <!-- 모달 창 -->
-          <div
-            class="modal fade"
-            id="myModal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="myModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content event-form">
-                <div class="modal-header text-center">
-                  <h4 class="modal-title text-center" id="myModalLabel">
-                    샌드뱅크와 함께하는 가격예측 이벤트 🙋
-                  </h4>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="event-detail mb-3">
-                    📆 이벤트 기간 : 6/1(목) 09:00 ~ 6/2(금) 18:00 <br /><br />
-                    💁‍♂️ 산정 기준 : 6/2(금) 19:00(KST) 기준 업비트 BTC/KRW 가격에
-                    가장 근접한 가격을 맞춘 기준으로 등수 산정
-                    <br /><br />
-                    🎯 이벤트 경품 :<br />
-                    - 1등: 10만원 상당의 비트코인 <br />
-                    - 2등: 5만원 상당의 비트코인 <br />
-                    - 3등: 3만원 상당의 비트코인 <br /><br />
-                    당첨자 발표: 샌드뱅크 홈페이지 > 공지사항 및 이메일 발송<br /><br />
-                    * 1인 1회 참여 가능하며, 중복 당첨자 발생 시 제출순으로
-                    순위가 산정됩니다.<br />
-                    * 현장 참여코드가 일치하지 않는 경우 무효입니다.<br />
-                  </div>
-                  <form
-                    action="https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec?function=doPost"
-                    method="post"
-                  >
-                    <div class="form-group">
-                      <label class="event-form-list" for="code"
-                        >현장 참여코드 (부스 문의)</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="code"
-                        name="code"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label class="event-form-list" for="phone"
-                        >휴대폰 번호</label
-                      >
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="phone"
-                        name="phone"
-                        placeholder="ex) 01012345678"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label class="event-form-list" for="price"
-                        >예상하는 비트코인 가격(원)</label
-                      >
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="price"
-                        name="price"
-                        required
-                        placeholder="ex) 370000000"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label class="event-form-list" for="email"
-                        >이메일 주소</label
-                      >
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
-                        placeholder="ex) name@example.com"
-                      />
-                    </div>
-                    <div class="accordion">
-                      <div class="accordion-item">
-                        <div class="accordion-header">
-                          <span>개인정보 수집 이용 동의</span>
-                          <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-content">
-                          경품 지급 목적으로 활용되며, 이벤트 종료 후 모든
-                          정보는 파기됩니다.
-                          <br />
-                          <br />
-                          항목: 이메일 주소, 연락처
-                          <br />수집/이용목적: 이벤트 참여 확인 및 이벤트 경품
-                          지급 목적 <br />보유/이용기간: 30일
-                          <br />
-                          <br />
-                          - 위의 개인정보 수집/이용에 대한 동의를 거부할 권리가
-                          있습니다.
-                          <br />
-                          - 그러나 동의를 거부할 경우 이벤트 참여에 제한을 받을
-                          수 있습니다.
-                          <br />
-                          <br />
-                          위와 같이 개인정보를 수집/이용하는 것에 동의합니다.
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      type="submit"
-                      class="btn btn-primary mt-3"
-                      id="submit-form"
-                    >
-                      <span id="submit-text">제출</span>
-                      <i id="submit-spinner" class="fas fa-spinner fa-spin"></i>
-                    </button>
-                  </form>
-                </div>
-              </div>
+        <div id="right-side" class="col-md-5 text-center">
+          <div class="status-header">
+            <h2
+              class="status-header-title text-center mb-5"
+              data-translate="status-header-title"
+            ></h2>
+            <div class="status-header-refresh">
+              <i class="fas fa-sync"></i>
             </div>
           </div>
+          <div class="status-field row">
+            <div class="col-md-3">
+              <h5
+                class="status-field-rank card-title"
+                data-translate="status-field-rank"
+              ></h5>
+            </div>
+            <div class="col-md-5">
+              <h5
+                class="status-field-price card-title"
+                data-translate="status-field-price"
+              ></h5>
+            </div>
+            <div class="col-md-4">
+              <h5
+                class="status-field-phone card-title"
+                data-translate="status-field-phone"
+              ></h5>
+            </div>
+          </div>
+          <div class="status-result"></div>
         </div>
       </div>
     </div>
@@ -211,228 +107,206 @@
       class="btn btn-primary floating-button"
       data-toggle="modal"
       data-target="#myModal"
+      data-translate="floating-button"
+    ></button>
+
+    <!-- 모달 창 -->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
     >
-      📈 바로 참여하기
-    </button>
-    <!-- jQuery 파일 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- 부트스트랩 JS 파일 -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://s3.tradingview.com/tv.js"
-    ></script>
-    <script type="text/javascript">
-      let main = document.querySelector("#left-side");
-      let width = main.offsetWidth - 20;
-      let height = main.offsetHeight + 200;
-
-      new TradingView.widget({
-        width: width,
-        height: height,
-        symbol: "UPBIT:BTCKRW",
-        interval: "5",
-        timezone: "Etc/UTC",
-        theme: "dark",
-        style: "1",
-        locale: "en",
-        toolbar_bg: "#f1f3f6",
-        enable_publishing: false,
-        allow_symbol_change: true,
-        container_id: "tradingview_91d31"
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        // 참여하기 버튼 클릭 시 event-form 팝업 열기
-        $(".open-form").click(function () {
-          $("#event-form").show();
-        });
-
-        // 팝업 외부를 클릭하면 팝업 닫기
-        $(window).click(function (e) {
-          if ($(e.target).is("#event-form")) {
-            $("#event-form").hide();
-          }
-        });
-      });
-    </script>
-    <script>
-      let currentPrice;
-      $(document).ready(function () {
-        const fetchSpreadSheet = (currentPrice) => {
-          $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
-            success: (data) => {
-              if (data.length === 0) {
-                cardContainer.html(
-                  '<div class="loading-text text-center">데이터가 없습니다.</div>'
-                );
-                return;
-              }
-
-              // currentPrice를 기준으로 데이터 배열을 재정렬
-              data.sort(
-                (a, b) =>
-                  Math.abs(a.price - currentPrice) -
-                  Math.abs(b.price - currentPrice)
-              );
-
-              cardContainer.empty();
-              const container = $("#current-status");
-              data.map((result, index) => {
-                const phone = String(result.phone); // 문자열로 변환
-                const card = `
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-3 event-rank">
-                  <div class="card-badge" style="background: ${
-                    index < 3
-                      ? "linear-gradient(144deg, rgba(243,72,72,0.5382746848739496) 0%, rgba(243,72,72,1) 60%)"
-                      : "transparent"
-                  }; color: ${index < 3 ? "white" : "black"}">${
-                  index < 3 ? "🏅" : ""
-                } ${index + 1}위</div>
-                </div>
-                <div class="col-md-5 event-price">
-                  <p class="card-text" id="result-rank">
-                    ${addCommas(result.price)}원</p>
-                  <p class="card-text card-text-sub" id="result-rank">
-                    (${
-                      result.price > currentPrice
-                        ? `<i class="fas fa-caret-up"></i>`
-                        : `<i class="fas fa-caret-down"></i>`
-                    }${"  "}${addCommas(
-                  Math.abs(result.price - currentPrice)
-                )}원)</p>
-                </div>
-                <div class="col-md-4 event-phone">
-                  <p class="card-text" id="result-rank">${
-                    phone.slice(-4) || phone
-                  }</p>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content event-form">
+          <div class="modal-header text-center">
+            <h4
+              class="modal-title text-center"
+              id="myModalLabel"
+              data-translate="myModalLabel"
+            ></h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="event-detail mb-3">
+              <span data-translate="event-detail1"></span>
+              <br /><br />
+              <span data-translate="event-detail2"></span>
+              <br /><br />
+              <span data-translate="event-detail3"></span>
+              <br />
+              <span data-translate="event-detail4"></span>
+              <br />
+              <span data-translate="event-detail5"></span>
+              <br />
+              <span data-translate="event-detail6"></span>
+              <br /><br />
+              <span data-translate="event-detail7"></span>
+              <br /><br />
+              <span data-translate="event-detail8"></span>
+              <br />
+              <span data-translate="event-detail9"></span>
+              <br />
+            </div>
+            <form
+              action="https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec?function=doPost"
+              method="post"
+            >
+              <div class="form-group">
+                <label
+                  class="event-form-list"
+                  for="code"
+                  data-translate="event-form-list-code"
+                ></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="code"
+                  name="code"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="event-form-list"
+                  for="phone"
+                  data-translate="event-form-list-phone"
+                ></label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  required
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  placeholder="ex) 01012345678"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="event-form-list"
+                  for="price"
+                  data-translate="event-form-list-price"
+                ></label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  name="price"
+                  required
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  placeholder=""
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  class="event-form-list"
+                  for="email"
+                  data-translate="event-form-list-email"
+                ></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="ex) name@example.com"
+                />
+              </div>
+              <div class="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header">
+                    <span data-translate="event-warning-title"></span>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <span data-translate="event-warning-detail1"></span>
+                    <br />
+                    <br />
+                    <span data-translate="event-warning-detail2"></span>
+                    <br />
+                    <span data-translate="event-warning-detail3"></span>
+                    <br />
+                    <span data-translate="event-warning-detail4"></span>
+                    <br />
+                    <br />
+                    <span data-translate="event-warning-detail5"></span>
+                    <br />
+                    <span data-translate="event-warning-detail6"></span>
+                    <br />
+                    <br />
+                    <span data-translate="event-warning-detail7"></span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>`;
-
-                container.append(card);
-              });
-            },
-            error: () => {
-              alert(
-                "데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요."
-              );
-            },
-            method: "GET",
-            data: { function: "doGet" }
-          });
-        };
-
-        const fetchCurrentPrice = () => {
-          $.ajax({
-            url: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=KRW&e=Upbit",
-            method: "GET",
-            success: (data) => {
-              const container = $(".event-card-price");
-              currentPrice = data["BTC"]["KRW"];
-              container.html(
-                `<span>현재가: ${addCommas(currentPrice)}원</span>`
-              );
-              fetchSpreadSheet(currentPrice);
-            },
-            error: () => {
-              alert(
-                "데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요."
-              );
-            }
-          });
-        };
-
-        fetchCurrentPrice();
-        setInterval(fetchCurrentPrice, 10000); // 10초마다 실행
-
-        const cardContainer = $("#current-status");
-        const loadingText =
-          '<div class="loading-text text-center"><i class="fas fa-spinner fa-spin"></i> 불러오는 중...</div>';
-        cardContainer.html(loadingText);
-
-        $("form").submit(function (event) {
-          event.preventDefault();
-          const submitForm = $("#submit-form");
-          const submitText = $("#submit-text");
-          const submitSpinner = $("#submit-spinner");
-
-          submitForm.prop("disabled", true);
-          submitText.css("display", "none");
-          submitSpinner.css("display", "block");
-
-          $.ajax({
-            url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
-            method: "POST",
-            data: $("form").serialize(),
-            success: (data) => {
-              submitSpinner.css("display", "none");
-              submitText.css("display", "inline");
-              submitText.text("참여 완료!");
-              location.reload();
-            }
-          });
-        });
-
-        $("#refresh").click(function () {
-          location.reload();
-        });
-
-        const accordionItems = $(".accordion-item");
-
-        accordionItems.each(function () {
-          const header = $(this).find(".accordion-header");
-          const content = $(this).find(".accordion-content");
-          const arrowIcon = $(this).find("i");
-
-          const handleClick = () => {
-            content.toggleClass("active");
-            arrowIcon.toggleClass("fa-chevron-down fa-chevron-up");
-
-            accordionItems.each(function (index, otherItem) {
-              if (!$(otherItem).is($(this))) {
-                const otherContent = $(otherItem).find(".accordion-content");
-                const otherArrowIcon = $(otherItem).find("i");
-                otherContent.removeClass("active");
-                otherArrowIcon
-                  .removeClass("fa-chevron-up")
-                  .addClass("fa-chevron-down");
-              }
-            });
-          };
-
-          header.on("click", handleClick);
-        });
-        $("#price").on("input", function () {
-          const value = $(this).val();
-          if (value.length > 9) {
-            $(this).val(value.slice(0, 9));
-          }
-        });
-        $("#phone").on("input", function () {
-          const value = $(this).val();
-          if (value.length > 11) {
-            $(this).val(value.slice(0, 11));
-          }
-        });
-      });
-
-      function addCommas(number) {
-        const parts = number.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return parts.join(".");
-      }
-
-      function validatePhoneNumber(phoneNumber) {
-        const pattern = /^[0-9]{3}-[0-9]{3,4}-[0-9]{4}$/;
-        return pattern.test(phoneNumber);
-      }
-    </script>
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+                id="submit-form"
+              >
+                <span id="submit-text" data-translate="event-submit"></span>
+                <i id="submit-spinner" class="fas fa-spinner fa-spin"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <!-- jQuery 파일 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- 부트스트랩 JS 파일 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://s3.tradingview.com/tv.js"
+  ></script>
+  <script src="main.js"></script>
+  <script src="i18n.js"></script>
+  <script type="text/javascript">
+    let main = document.querySelector("#left-side");
+    let width = main.offsetWidth - 20;
+    let height = main.offsetHeight + 200;
+
+    new TradingView.widget({
+      width: width,
+      height: height,
+      symbol: "UPBIT:BTCKRW",
+      interval: "5",
+      timezone: "Etc/UTC",
+      theme: "dark",
+      style: "1",
+      locale: "en",
+      toolbar_bg: "#f1f3f6",
+      enable_publishing: false,
+      allow_symbol_change: true,
+      container_id: "tradingview_91d31"
+    });
+  </script>
+  <script>
+    i18n.init({
+      lng: "ko", // 기본 언어 설정
+      resources: {}
+    });
+
+    // JSON 파일 로드
+    fetch("script.json")
+      .then((response) => response.json())
+      .then((data) => {
+        i18n.resources = data;
+        i18n.applyTranslation();
+      })
+      .catch((error) => {
+        console.error("리소스를 로드하는 중 오류가 발생했습니다:", error);
+      });
+  </script>
 </html>
