@@ -1,3 +1,15 @@
+/** @format */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
 body {
   background: #000;
   background-image: linear-gradient(
@@ -19,6 +31,9 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+.card-body {
+  padding: 10px;
+}
 .card-title {
   font-size: 18px;
 }
@@ -26,6 +41,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
 }
 .event-card-title {
   font-size: 40px;
@@ -37,22 +53,127 @@ body {
   font-size: 16px;
   color: #fff;
 }
+.event-card-description-time {
+  font-size: 24px;
+  font-weight: 700;
+}
 .event-card-warning {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   color: #fff;
 }
 .event-card-price {
-  font-size: 20px;
+  font-size: 36px;
   font-weight: 700;
-  color: #fff;
+  margin-bottom: 3px;
 }
 .card-text {
   color: #212529;
 }
 #left-side {
   padding-right: 50px;
+  text-align: center;
 }
 #right-side {
   padding-left: 50px;
+}
+.logo {
+  width: 150px;
+}
+.icon-cross {
+  width: 50px;
+}
+.event-table {
+}
+.event-form {
+  color: #000;
+}
+.card-badge {
+  /* background-color: red; */
+  width: 60px;
+  height: 27px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.event-form-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(1, 124, 255);
+  margin-bottom: 10px;
+}
+.event-form-list {
+  font-weight: 700;
+}
+.accordion {
+  margin-bottom: 10px;
+}
+.accordion-item {
+}
+.accordion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.accordion-content {
+  background-color: aliceblue;
+  padding: 15px;
+  display: none;
+  font-size: 12px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.event-detail {
+  background-color: aliceblue;
+  padding: 15px;
+  font-size: 14px;
+}
+.accordion-content.active {
+  padding: 10px;
+  max-height: 500px; /* 펼쳐진 상태에서의 최대 높이 값으로 설정해주세요 */
+  transition: max-height 0.3s ease-in;
+}
+
+.accordion-content.active {
+  display: block;
+}
+.submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.loading-text {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+#submit-spinner {
+  display: none;
+}
+.modal-title {
+  font-weight: 700;
+}
+.btn {
+  width: 100%;
+}
+.join-title {
+  position: relative;
+}
+#refresh {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  cursor: pointer;
+}
+#refresh:hover {
+  color: rgb(1, 124, 255);
 }

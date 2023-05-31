@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,32 +10,52 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container mt-5">
       <div class="row">
         <div id="left-side" class="col-md-7">
+          <div class="logos mb-2">
+            <img class="logo" src="white.png" alt="" />
+            <i class="fas fa-times icon-cross"></i>
+            <img class="logo" src="nextrise.png" alt="" />
+          </div>
           <h1 class="event-card-title text-center mb-5">
-            내일의 비트코인 가격은 어떻게 될까!
+            비트코인 가격 예측 이벤트
           </h1>
           <p class="event-card-description text-center mb-5">
-            "한 번의 예측으로 비트코인을 받아가세요! 당신이 예측한 날의 코인
-            가격이 가장 가깝다면, 상위 3분께 소정의 비트코인을 선물로 드립니다
-            😄"
+            <span class="event-card-description-time">
+              6월 2일 19:00(KST)
+            </span>
+            비트코인의 가격을 맞춰주세요! <br />
+            가장 비슷하게 맞춰주신 분들께는 최대 10만원 상당의 비트코인을
+            드립니다. 😄
           </p>
-          <h2 class="event-card-price text-center">현재 가격: $27,970</h2>
-          <span class="event-card-warning">
-            * 현재가는 CryptoCompare 기준이며, 참고용으로 제공됩니다. 실제
-            이벤트 참여 시 기준 가격은 바이낸스 BTC/USDT 기준으로 산정됩니다.
-          </span>
+          <div class="mb-2">
+            <h2 class="event-card-price text-center"></h2>
+            <p class="event-card-warning">
+              * 현재가는 CryptoCompare 기준이며, 참고용으로만 제공됩니다. 이벤트
+              결과 선정 시 기준가격은 바이낸스 BTC/USDT입니다.
+            </p>
+          </div>
           <div class="tradingview-widget-container">
             <div id="tradingview_91d31"></div>
           </div>
         </div>
         <div id="right-side" class="col-md-5">
-          <div class="mt-5">
-            <h2 class="text-center mb-5">현재까지 참여 현황</h2>
+          <div class="event-table mt-5 text-center">
+            <div class="join-title">
+              <h2 class="text-center mb-5">참여 현황</h2>
+              <div id="refresh">
+                <i class="fas fa-sync"></i>
+              </div>
+            </div>
             <div class="card-field row">
               <div class="col-md-4">
                 <h5 class="card-title">현재 순위</h5>
@@ -47,41 +69,130 @@
             </div>
             <div id="current-status"></div>
           </div>
-          <div class="mt-5">
-            <h2 class="text-center mb-3">참여하기</h2>
-            <form
-              action="https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec?function=doPost"
-              method="post"
-            >
-              <div class="form-group">
-                <label for="coin-name">이름</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="coin-name"
-                  placeholder="예상 가격"
-                />
+          <button
+            type="button"
+            class="join btn btn-primary"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            📈 참여하기
+          </button>
+          <!-- 모달 창 -->
+          <div
+            class="modal fade"
+            id="myModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content event-form">
+                <div class="modal-header text-center">
+                  <h3 class="modal-title text-center" id="myModalLabel">
+                    참여하기 🙋
+                  </h3>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="event-detail mb-3">
+                    📆이벤트 기간 : 6/1(목)~6/2(금) 18시까지 <br /><br />
+                    🎯이벤트 경품 :<br />
+                    - 1등: 10만원 상당의 비트코인 <br />
+                    - 2등: 5만원 상당의 비트코인 <br />
+                    - 3등: 3만원 상당의 비트코인 <br /><br />
+                    당첨자 발표: 샌드뱅크 홈페이지 및 이메일 발송<br />
+                    중복 당첨자 발생 시 제출순으로 순위가 측정됩니다.
+                  </div>
+                  <form
+                    action="https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec?function=doPost"
+                    method="post"
+                  >
+                    <div class="form-group">
+                      <label class="event-form-list" for="phone"
+                        >휴대폰 번호</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        placeholder="ex) 01012345678"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label class="event-form-list" for="price"
+                        >예상하는 비트코인 가격($)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="price"
+                        name="price"
+                        required
+                        placeholder="ex) 27000"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label class="event-form-list" for="email"
+                        >이메일 주소</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="ex) name@example.com"
+                      />
+                    </div>
+                    <div class="accordion">
+                      <div class="accordion-item">
+                        <div class="accordion-header">
+                          <span>개인정보 수집 이용 동의</span>
+                          <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                          경품 지급 목적으로 활용되며, 이벤트 종료 후 모든
+                          정보는 파기됩니다.
+                          <br />
+                          <br />
+                          항목: 이메일 주소, 연락처
+                          <br />수집/이용목적: 이벤트 참여 확인 및 이벤트 경품
+                          지급 목적 <br />보유/이용기간: 30일
+                          <br />
+                          <br />
+                          - 위의 개인정보 수집/이용에 대한 동의를 거부할 권리가
+                          있습니다.
+                          <br />
+                          - 그러나 동의를 거부할 경우 이벤트 참여에 제한을 받을
+                          수 있습니다.
+                          <br />
+                          <br />
+                          위와 같이 개인정보를 수집/이용하는 것에 동의합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary mt-3"
+                      id="submit-form"
+                    >
+                      <span id="submit-text">제출</span>
+                      <i id="submit-spinner" class="fas fa-spinner fa-spin"></i>
+                    </button>
+                  </form>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="coin-price">코인 가격</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="coin-price"
-                  placeholder="코인 가격을 입력하세요..."
-                />
-              </div>
-              <div class="form-group">
-                <label for="coin-expectation">휴대폰 번호</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="coin-expectation"
-                  placeholder="휴대폰 번호를 입력하세요..."
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">제출</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -90,18 +201,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- 부트스트랩 JS 파일 -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      // jQuery
-      $("form").submit(function (event) {
-        event.preventDefault();
-        const coinName = $("#coin-name").val();
-        const coinPrice = $("#coin-price").val();
-        const coinExpectation = $("#coin-expectation").val();
-        $("#result-coin-name").text(coinName);
-        $("#result-coin-price").text(coinPrice);
-        $("#result-coin-expectation").text(coinExpectation);
-      });
-    </script>
     <script
       type="text/javascript"
       src="https://s3.tradingview.com/tv.js"
@@ -109,7 +208,7 @@
     <script type="text/javascript">
       let main = document.querySelector("#left-side");
       let width = main.offsetWidth - 20;
-      let height = main.offsetHeight - 20;
+      let height = main.offsetHeight + 200;
 
       new TradingView.widget({
         width: width,
@@ -123,48 +222,178 @@
         toolbar_bg: "#f1f3f6",
         enable_publishing: false,
         allow_symbol_change: true,
-        container_id: "tradingview_91d31",
+        container_id: "tradingview_91d31"
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        // 참여하기 버튼 클릭 시 event-form 팝업 열기
+        $(".open-form").click(function () {
+          $("#event-form").show();
+        });
+
+        // 팝업 외부를 클릭하면 팝업 닫기
+        $(window).click(function (e) {
+          if ($(e.target).is("#event-form")) {
+            $("#event-form").hide();
+          }
+        });
       });
     </script>
     <script>
+      let currentPrice;
       $(document).ready(function () {
-        const ajaxSettings = {
-          url: "https://script.google.com/macros/s/AKfycbwpm21kjEFxjCoGLr91PouK4YUlnpudbGnBvsvMWQq3J-7KjAeP-82J2VkCwcy0btNl/exec",
-          success: (data) => {
-            const container = document.querySelector("#current-status");
-            data.forEach((result) => {
-              const card = `
-              <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                    <p class="card-text" id="result-rank">${result.rank}</p>
-                    </div>
-                    <div class="col-md-4">
-                    <p class="card-text" id="result-rank">${result.price}</p>
-                    </div>
-                    <div class="col-md-4">
-                    <p class="card-text" id="result-rank">${result.phone.slice(
-                      -4
-                    )}</p>
-                    </div>
-                    </div>
-                </div>
-                </div>`;
+        const fetchSpreadSheet = (currentPrice) => {
+          $.ajax({
+            url: "https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec",
+            success: (data) => {
+              if (data.length === 0) {
+                cardContainer.html(
+                  '<div class="loading-text text-center">데이터가 없습니다.</div>'
+                );
+                return;
+              }
 
-              container.insertAdjacentHTML("beforeend", card);
-            });
-          },
-          error: () => {
-            alert("추천에 실패했습니다. 잠시 후에 다시 시도해주세요.");
-          },
+              // currentPrice를 기준으로 데이터 배열을 재정렬
+              data.sort(
+                (a, b) =>
+                  Math.abs(a.price - currentPrice) -
+                  Math.abs(b.price - currentPrice)
+              );
+
+              cardContainer.empty();
+              const container = $("#current-status");
+              data.map((result, index) => {
+                const phone = String(result.phone); // 문자열로 변환
+                const card = `
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card-badge" style="background-color: ${
+                    index < 3 ? "#f34848" : "transparent"
+                  }; color: ${index < 3 ? "white" : "black"}">${
+                  index < 3 ? "🏅" : ""
+                } ${index + 1}위</div>
+                </div>
+                <div class="col-md-4">
+                  <p class="card-text" id="result-rank">$ ${addCommas(
+                    result.price
+                  )}</p>
+                </div>
+                <div class="col-md-4">
+                  <p class="card-text" id="result-rank">${
+                    phone.slice(-4) || phone
+                  }</p>
+                </div>
+              </div>
+            </div>
+          </div>`;
+
+                container.append(card);
+              });
+            },
+            error: () => {
+              alert(
+                "데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요."
+              );
+            },
+            method: "GET",
+            data: { function: "doGet" }
+          });
         };
 
-        $.ajax({ ...ajaxSettings, method: "GET", data: { function: "doGet" } });
+        const fetchCurrentPrice = () => {
+          $.ajax({
+            url: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USDT",
+            method: "GET",
+            success: (data) => {
+              const container = $(".event-card-price");
+              currentPrice = data["BTC"]["USDT"];
+              container.html(
+                `<span>현재가: $ ${addCommas(currentPrice)}</span>`
+              );
+              fetchSpreadSheet(currentPrice);
+            },
+            error: () => {
+              alert(
+                "데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요."
+              );
+            }
+          });
+        };
+
+        fetchCurrentPrice();
+        setInterval(fetchCurrentPrice, 10000); // 10초마다 실행
+
+        const cardContainer = $("#current-status");
+        const loadingText =
+          '<div class="loading-text text-center"><i class="fas fa-spinner fa-spin"></i> 불러오는 중...</div>';
+        cardContainer.html(loadingText);
+
+        $("form").submit(function (event) {
+          event.preventDefault();
+          const submitForm = $("#submit-form");
+          const submitText = $("#submit-text");
+          const submitSpinner = $("#submit-spinner");
+
+          submitForm.prop("disabled", true);
+          submitText.css("display", "none");
+          submitSpinner.css("display", "block");
+
+          $.ajax({
+            url: "https://script.google.com/macros/s/AKfycby2-u3K14exRUi0vr6d7k7PIlMdUr-XapYIW3QrGplvAfi066fIK_oE0jyVxlDfaJTo/exec",
+            method: "POST",
+            data: $("form").serialize(),
+            success: (data) => {
+              submitText.css("display", "block");
+              submitSpinner.css("display", "none");
+              alert("참여가 완료되었습니다.");
+              location.reload();
+            }
+          });
+        });
+
+        $("#refresh").click(function () {
+          location.reload();
+        });
+
+        const accordionItems = $(".accordion-item");
+
+        accordionItems.each(function () {
+          const header = $(this).find(".accordion-header");
+          const content = $(this).find(".accordion-content");
+          const arrowIcon = $(this).find("i");
+
+          const handleClick = () => {
+            content.toggleClass("active");
+            arrowIcon.toggleClass("fa-chevron-down fa-chevron-up");
+
+            accordionItems.each(function (index, otherItem) {
+              if (!$(otherItem).is($(this))) {
+                const otherContent = $(otherItem).find(".accordion-content");
+                const otherArrowIcon = $(otherItem).find("i");
+                otherContent.removeClass("active");
+                otherArrowIcon
+                  .removeClass("fa-chevron-up")
+                  .addClass("fa-chevron-down");
+              }
+            });
+          };
+
+          header.on("click", handleClick);
+        });
       });
 
-      function updateCards(data) {
-        console.log(data);
+      function addCommas(number) {
+        const parts = number.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+      }
+
+      function validatePhoneNumber(phoneNumber) {
+        const pattern = /^[0-9]{3}-[0-9]{3,4}-[0-9]{4}$/;
+        return pattern.test(phoneNumber);
       }
     </script>
   </body>
