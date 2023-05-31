@@ -120,7 +120,7 @@ $(document).ready(function () {
   // 로딩 텍스트 표시 함수
   function showLoadingText() {
     const loadingText =
-      '<div class="loading-text text-center"><i class="fas fa-spinner fa-spin"></i> 불러오는 중...</div>';
+      '<div class="loading-text text-center"><i class="fas fa-spinner fa-spin"></i> Loading...</div>';
     cardContainer.html(loadingText);
   }
 

@@ -220,11 +220,11 @@ body {
   width: 100%;
 }
 .loading-text {
-  font-size: 16px;
+  font-size: 26px;
   color: #fff;
   text-align: center;
   padding: 20px;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 #submit-form {
   width: 100%;
