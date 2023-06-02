@@ -28,7 +28,7 @@ $(document).ready(function () {
   let currentPrice;
   const fetchSpreadSheet = (currentPrice) => {
     $.ajax({
-      url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
+      url: "https://script.google.com/macros/s/AKfycbzpxWkTBfZWqJp9NHOA2hkRfyAS4Rati-YSBDKWBzSkYS6wuTZimWjxr95WnOJvxzNu/exec",
       success: (data) => {
         if (data.length === 0) {
           cardContainer.html(
@@ -162,7 +162,7 @@ $(document).ready(function () {
       submitSpinner.css("display", "block");
 
       $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbynqoXup_-qgforKRqOuANahp1eDjcp4xT06MbUCMZ0ddF4QGWhCK0hzjfjOzSe6QTV/exec",
+        url: "https://script.google.com/macros/s/AKfycbzpxWkTBfZWqJp9NHOA2hkRfyAS4Rati-YSBDKWBzSkYS6wuTZimWjxr95WnOJvxzNu/exec",
         method: "POST",
         data: $("form").serialize(),
         success: (data) => {
